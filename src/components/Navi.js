@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import { Navbar } from "react-bootstrap";
-import IMG_ from '../bc4099.jpg';
+import { Navbar, Nav } from "react-bootstrap";
+import Logo from '../logo.png';
+import IMG_ from '../cbs.png';
 
 
 
@@ -8,14 +9,26 @@ import IMG_ from '../bc4099.jpg';
 export default class Navi extends Component {
     render() {
         return (
-            <div style={{ height: "60px" }} >
-                <Navbar bg="dark" variant="dark" fixed="top" >
-                    <Navbar.Brand >
-                        <img src={IMG_}  alt="" title="" width="99" height="40" />
-                    </Navbar.Brand>
-                    <Navbar.Brand >Cows & Bulls Game</Navbar.Brand>
-                </Navbar>
-            </div>
+            <Navbar className="bg-dark justify-content-between" variant="dark" fixed="top" style={{ height: "50px" }}>
+                <Navbar.Brand href="https://gokhankaracay.netlify.app/">
+                    <img
+                        src={Logo}
+                        width="100px"
+                        height="20px"
+                        className="d-inline-block align-top"
+                        alt="React Bootstrap logo"
+                        style={{ marginTop: "6px" }}
+                    />
+                </Navbar.Brand>
+                {/* <Navbar.Toggle aria-controls="responsive-navbar-nav" /> */}
+                <Navbar.Collapse id="responsive-navbar-nav" className="justify-content-end" >
+                    <Nav >
+                        <Navbar.Brand  >
+                            <img src={IMG_} alt="" title="" width="99" height="40" />
+                        </Navbar.Brand>
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar>
         )
     }
 }

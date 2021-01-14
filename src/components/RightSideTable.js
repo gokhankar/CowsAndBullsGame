@@ -5,7 +5,7 @@ import { Container, Table  } from "react-bootstrap";
 export default class RightSideTable extends Component {
     render() {
         return (
-            <Container>
+            <Container style={{ margin:"3px", marginBottom: "20px", marginTop: "20px", padding: "0px", minWitdh: "450px", maxWidth: "470px"}}>
                 <h3>History of your guesses</h3>
                 <Table striped bordered hover size="sm">
                     <thead>

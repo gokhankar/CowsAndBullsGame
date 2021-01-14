@@ -145,52 +145,53 @@ class App extends Component {
 
   render() {
     return (
-      <Container fluid="true">
-        <Row>
-          <Navi />
-        </Row>
-        <Row>
-          <Col xs="8">
-            <Col>
-              <Card border="success" fluid="sm"  >
-                <Card.Header>
-                  Make a guess -
-                  <Button id="cheatbutton" onClick={this.cheatMe} variant="outline-danger" size="sm" right >Click to see number TEST</Button>
-                </Card.Header>
-                <Card.Body>
-                  <Card.Title id="deletedend1" style={{ height: "55px" }}> {this.state.error === "" || this.state.error === " " ? "Wellcome to cows and bulls game. Lets play !" : this.state.error} </Card.Title>
-                  <Card.Text id="deletedend" style={{ color: "red", height: "20px" }} >
-                    Please choose your 4 digit number and push the button below!
-                </Card.Text>
-                  <Col xs lg="1">
-                  </Col>
-                  <Col md="auto"  >
-                    <Form>
+      <Container fluid style={{ margin: "0px", marginTop: "50px", background: "#a2b9bc", height: "100vh" }}>
+        <Navi />
+        <Container>
+          <Row style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize:"20px", fontWeight:"bold", height: "40px" }}>***Cows & Bulls Game***</Row>
+          <Row> 
+            <Col >
+              <Container>
+                <Row >
+                  <Card border="success" style={{ width: "470px", minHeight: "420px", background: "#d5e1df" }} >
+                    <Card.Header>
+                      Make a guess
+                  {/* -
+                  <Button id="cheatbutton" onClick={this.cheatMe} variant="outline-danger" size="sm" right >Click to see number TEST</Button> */}
+                    </Card.Header>
+                    <Card.Body>
+                      <Card.Title id="deletedend1" style={{ height: "55px" }}> {this.state.error === "" || this.state.error === " " ? "Wellcome to Cows & Bulls game. Lets play !" : this.state.error} </Card.Title>
+                      <Card.Text id="deletedend" style={{ color: "red", height: "20px" }} >
+                        Please choose your 4 digit number and push the button below!
+                      </Card.Text>
                       <Container style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                        <Form.Group controlId="exampleForm.SelectCustomSizeLg"  >
-                          <Form.Control name="number1" onChange={this.numberChangeHandler} type="number" min="0" max="9" size="sm" style={{ width: "40px", display: "inline", padding: "1px", margin: "1px", paddingLeft: "5px" }} />
-                          <Form.Control name="number2" onChange={this.numberChangeHandler} type="number" min="0" max="9" size="sm" style={{ width: "40px", display: "inline", padding: "1px", margin: "1px", paddingLeft: "5px" }} />
-                          <Form.Control name="number3" onChange={this.numberChangeHandler} type="number" min="0" max="9" size="sm" style={{ width: "40px", display: "inline", padding: "1px", margin: "1px", paddingLeft: "5px" }} />
-                          <Form.Control name="number4" onChange={this.numberChangeHandler} type="number" min="0" max="9" size="sm" style={{ width: "40px", display: "inline", padding: "1px", margin: "1px", paddingLeft: "5px" }} />
-                        </Form.Group>
+                        <Form style={{ position: "absolute", bottom: "70px" }}>
+                          <Form.Group controlId="exampleForm.SelectCustomSizeLg"  >
+                            <Form.Control name="number1" onChange={this.numberChangeHandler} type="number" min="0" max="9" size="sm" style={{ width: "40px", display: "inline", padding: "1px", margin: "1px", paddingLeft: "5px", background: "#deeaee" }} />
+                            <Form.Control name="number2" onChange={this.numberChangeHandler} type="number" min="0" max="9" size="sm" style={{ width: "40px", display: "inline", padding: "1px", margin: "1px", paddingLeft: "5px", background: "#deeaee" }} />
+                            <Form.Control name="number3" onChange={this.numberChangeHandler} type="number" min="0" max="9" size="sm" style={{ width: "40px", display: "inline", padding: "1px", margin: "1px", paddingLeft: "5px", background: "#deeaee" }} />
+                            <Form.Control name="number4" onChange={this.numberChangeHandler} type="number" min="0" max="9" size="sm" style={{ width: "40px", display: "inline", padding: "1px", margin: "1px", paddingLeft: "5px", background: "#deeaee" }} />
+                          </Form.Group>
+                        </Form>
                       </Container>
-                    </Form>
-                    <Button onClick={this.handleClick} disabled={this.state.error !== " " || this.state.error === "Congratulations! Finished!" ? true : false} variant="outline-success" size="lg" block>My number is:  {this.state.number1}{this.state.number2}{this.state.number3}{this.state.number4} </Button>
-                  </Col>
-                  <Col xs lg="1">
-                  </Col>
-                </Card.Body>
-              </Card>
+                      <Container style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+
+                        <Button style={{ position: "absolute", bottom: "20px", left: "0px", }} onClick={this.handleClick} disabled={this.state.error !== " " || this.state.error === "Congratulations! Finished!" ? true : false} variant="outline-success" size="lg" block>My number is:  {this.state.number1}{this.state.number2}{this.state.number3}{this.state.number4} </Button>
+                      </Container>
+
+                    </Card.Body>
+                  </Card>
+                </Row>
+                <Row>
+                  <RightSideTable numberList={this.state.numberList} bullsAndCows={this.state.bullsAndCows} />
+                </Row>
+              </Container>
             </Col>
-            <Col>
+            <Col >
               <Assistant />
             </Col>
-
-          </Col>
-          <Col xs="4">
-            <RightSideTable numberList={this.state.numberList} bullsAndCows={this.state.bullsAndCows} />
-          </Col>
-        </Row>
+          </Row>
+        </Container>
       </Container >
     )
   }
